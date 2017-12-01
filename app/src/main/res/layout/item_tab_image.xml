@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_tab_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/tab_icon_w_h"
+        android:layout_height="@dimen/tab_icon_w_h"
         android:contentDescription="TODO"/>
 
 </LinearLayout>

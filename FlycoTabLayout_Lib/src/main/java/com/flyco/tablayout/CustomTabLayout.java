@@ -203,7 +203,9 @@ public class CustomTabLayout extends FrameLayout implements ValueAnimator.Animat
      */
     private void addTab(final int position, View tabView) {
         ImageView iv_tab_icon = (ImageView) tabView.findViewById(R.id.iv_tab_icon);
-        iv_tab_icon.setImageResource(mTabEntitys.get(position).getTabUnselectedIcon());
+        if (iv_tab_icon != null) {
+            iv_tab_icon.setImageResource(mTabEntitys.get(position).getTabUnselectedIcon());
+        }
         tabView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -236,6 +238,9 @@ public class CustomTabLayout extends FrameLayout implements ValueAnimator.Animat
             View tabView = mTabsContainer.getChildAt(i);
             tabView.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
             ImageView iv_tab_icon = (ImageView) tabView.findViewById(R.id.iv_tab_icon);
+            if (iv_tab_icon == null) {
+                return;
+            }
             if (mIconVisible) {
                 iv_tab_icon.setVisibility(View.VISIBLE);
                 CustomLayoutTabEntity tabEntity = mTabEntitys.get(i);
@@ -254,9 +259,12 @@ public class CustomTabLayout extends FrameLayout implements ValueAnimator.Animat
         for (int i = 0; i < mTabCount; ++i) {
             View tabView = mTabsContainer.getChildAt(i);
             final boolean isSelect = i == position;
+            tabView.setSelected(isSelect);
             ImageView iv_tab_icon = (ImageView) tabView.findViewById(R.id.iv_tab_icon);
-            CustomLayoutTabEntity tabEntity = mTabEntitys.get(i);
-            iv_tab_icon.setImageResource(isSelect ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
+            if (iv_tab_icon != null) {
+                CustomLayoutTabEntity tabEntity = mTabEntitys.get(i);
+                iv_tab_icon.setImageResource(isSelect ? tabEntity.getTabSelectedIcon() : tabEntity.getTabUnselectedIcon());
+            }
         }
     }
 

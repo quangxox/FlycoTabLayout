@@ -18,13 +18,13 @@ public class CustomTabActivity extends AppCompatActivity {
     private ArrayList<Fragment> mFragments2 = new ArrayList<>();
     private String[] mTitles = {"1", "2", "3", "4"};
     private int[] mIconUnselectIds = {
-            R.mipmap.tab_home_unselect, R.mipmap.tab_speech_unselect,
-            R.mipmap.tab_contact_unselect, R.mipmap.tab_more_unselect};
+            R.drawable.icon_user,  R.drawable.icon_fork,
+            R.drawable.icon_calendar,  R.drawable.icon_bell};
     private int[] mIconSelectIds = {
-            R.mipmap.tab_home_select, R.mipmap.tab_speech_select,
-            R.mipmap.tab_contact_select, R.mipmap.tab_more_select};
+            R.drawable.icon_user_active, R.drawable.icon_fork_active,
+            R.drawable.icon_calendar_active, R.drawable.icon_bell_active};
     private int[] mLayoutTab = {
-            R.layout.item_tab_image, R.layout.item_tab_image,
+            R.layout.item_tab_image, R.layout.item_tab_image_flip,
             R.layout.item_tab_image, R.layout.item_tab_image};
 
     private ArrayList<CustomLayoutTabEntity> mTabEntities = new ArrayList<>();
@@ -57,7 +57,7 @@ public class CustomTabActivity extends AppCompatActivity {
 
             }
         });
-        mTabLayout_3.setCurrentTab(1);
+        mTabLayout_3.setCurrentTab(0);
     }
 
 }
